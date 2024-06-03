@@ -15,6 +15,7 @@ int category_initializer(const std::string& category);
 int main() {
 	std::vector<Question> questions = getTriviaQuestions("music", "easy");
 	show_questions(questions);
+	std::cout << "Done!";
 }
 
 std::vector<Question> readQuestionsFromJSON(const std::string& filename) {
