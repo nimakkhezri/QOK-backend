@@ -1,0 +1,65 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Mathematics",
+      "question": "What Greek letter is used to signify summation?",
+      "correct_answer": "Sigma",
+      "incorrect_answers": [
+        "Delta",
+        "Alpha",
+        "Omega"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Mathematics",
+      "question": "Which greek mathematician ran through the streets of Syracuse naked while shouting &quot;Eureka&quot; after discovering the principle of displacement?",
+      "correct_answer": "Archimedes",
+      "incorrect_answers": [
+        "Euclid",
+        "Homer",
+        "Eratosthenes"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Mathematics",
+      "question": "In the hexadecimal system, what number comes after 9?",
+      "correct_answer": "The Letter A",
+      "incorrect_answers": [
+        "10",
+        "The Number 0",
+        "16"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Mathematics",
+      "question": "What type of function is x&sup2;+2x+1?",
+      "correct_answer": "Quadratic",
+      "incorrect_answers": [
+        "Rational",
+        "Linear",
+        "Exponential"
+      ]
+    },
+    {
+      "type": "multiple",
+      "difficulty": "medium",
+      "category": "Science: Mathematics",
+      "question": "How many books are in Euclid&#039;s Elements of Geometry?",
+      "correct_answer": "13",
+      "incorrect_answers": [
+        "8",
+        "10",
+        "17"
+      ]
+    }
+  ]
+}
