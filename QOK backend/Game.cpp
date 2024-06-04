@@ -38,6 +38,7 @@ void Game::nextRound() {
 void Game::set_players(const Player& player1, const Player& player2) {
 	players.push_back(player1);
 	players.push_back(player2);
+	set_currentTurn();
 }
 
 void Game::get_players_info() {
@@ -127,7 +128,7 @@ int Game::ask_questions(const std::string& player_name) {
 		std::cout << "\n\n";
 		int j = 1;
 		for (const std::string& answer : answers) {
-			std::cout << "\t\t" << j << ". " << answer;
+			std::cout << "\t\t" << j++ << ". " << answer;
 		}
 		std::cout << "\n\n\n\tYour Choice (30 seconds): ";
 		std::cin >> choice;
@@ -142,6 +143,8 @@ void Game::checkAnswers(const int& score1, const int& score2) {
 	if (score1 == score2) {
 		players[0].add_point();
 		players[1].add_point();
+		Player player3("We dont have a winner !!");
+		setRoundWinnerPlayer(player3);
 	}
 	else if (score1 > score2) {
 		players[get_currentTurn_player_index()].add_point();
@@ -166,7 +169,7 @@ void Game::endRound() {
 	std::cout << "\n\n\n\tQuestions: " << std::endl;
 	int i = 1;
 	for (const Question& question : currentQuestions) {
-		std::cout << "\n\n\t" << i << ". " << std::left << std::setw(50) << question.get_question() << std::setw(40) << "Correct Answer: " << question.get_correct_answer() << std::endl;
+		std::cout << "\n\n\t" << i++ << ". " << std::left << std::setw(50) << question.get_question() << std::setw(40) << "Correct Answer: " << question.get_correct_answer() << std::endl;
 	}
 	system("Pause");
 }

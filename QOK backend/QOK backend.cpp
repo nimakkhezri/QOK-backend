@@ -9,9 +9,6 @@
 #include "Category.h"
 #include "Game.h"
 
-Category category_initializer(const TriviaAPI& api, const std::string& category_name);
-void show_questions(const std::vector<Question>& questions);
-
 int main() {
 	int choice;
 	do {
@@ -25,21 +22,4 @@ int main() {
 			game.start();
 		}
 	} while (choice != 0);
-}
-
-Category category_initializer(const TriviaAPI& api, const std::string& category_name) {
-	std::vector<Category> categories = api.get_categories();
-	for (const Category& category : categories) {
-		if (category.get_name() == category_name) {
-			return category;
-		}
-	}
-	Category category("Any", 0);
-	return category;
-}
-
-void show_questions(const std::vector<Question>& questions) {
-	for (const Question& question : questions) {
-		std::cout << question.get_question() << std::endl;
-	}
 }
