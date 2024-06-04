@@ -130,14 +130,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Category.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="QOK backend.cpp" />
     <ClCompile Include="Question.cpp" />
     <ClCompile Include="Question.h" />
+    <ClCompile Include="TriviaAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\..\vcpkg\installed\x64-windows\debug\bin\libcurl-d.dll" />
     <None Include="..\..\..\..\..\..\vcpkg\installed\x64-windows\debug\bin\zlibd1.dll" />
     <None Include="questions.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Category.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="TriviaAPI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

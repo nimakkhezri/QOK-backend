@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <iomanip>
 #include <curl/curl.h>
 #include <nlohmann/json.hpp>
 #include <map>
@@ -14,6 +15,7 @@ class TriviaAPI {
 private:
 	std::string base_url;
 	std::vector<Category> categories;
+	void download_categories();
 public:
 	TriviaAPI() {
 		this->base_url = "https://opentdb.com/api.php?amount=5&category=";
@@ -21,7 +23,6 @@ public:
 	}
 
 	std::vector<Question> get_questions(const Category& category, const std::string& difficulty);
-	void download_categories();
 	void show_categories();
 	std::vector<Category> get_categories() const;
 };

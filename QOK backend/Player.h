@@ -8,7 +8,7 @@ private:
 	std::string name;
 	int score;
 public:
-	Player(std::string name, int score): name(name), score(score){}
+	Player(std::string name, int score = 0): name(name), score(score){}
 	Player(){}
 
 	std::string get_name() const;
@@ -16,6 +16,7 @@ public:
 
 	void set_name(const std::string& name);
 	void set_score(const int& score);
+	void add_point();
 };
 
 #endif

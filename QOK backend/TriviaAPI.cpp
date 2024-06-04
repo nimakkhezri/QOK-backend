@@ -69,8 +69,9 @@ void TriviaAPI::download_categories() {
 }
 
 void TriviaAPI::show_categories() {
+	std::cout << "\n\n\tCategories:" << std::endl;
 	for (const Category& category : categories) {
-		std::cout << category.get_name() << " : " << category.get_id() << std::endl;
+		std::cout << "\n\n\t" << std::left << std::setw(45) << category.get_name() << "Code :" << category.get_id() << std::endl;
 	}
 }
 

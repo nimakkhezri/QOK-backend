@@ -1,11 +1,13 @@
 #include "Question.h"
 
+
 //getter funcs
 std::string Question::get_type() const {
 	return type;
 }
 
-std::string Question::get_category() const {
+
+Category Question::get_category() const {
 	return category;
 }
 
@@ -31,7 +33,7 @@ void Question::set_type(const std::string& type) {
 	this->type = type;
 }
 
-void Question::set_category(const std::string& category) {
+void Question::set_category(const Category& category) {
 	this->category = category;
 }
 void Question::set_difficulty(const std::string& difficulty) {

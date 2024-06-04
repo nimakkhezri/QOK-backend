@@ -15,3 +15,7 @@ void Player::set_name(const std::string& name) {
 void Player::set_score(const int& score) {
 	this->score = score;
 }
+
+void Player::add_point() {
+	this->score += 1;
+}
