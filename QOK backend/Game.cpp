@@ -1,6 +1,6 @@
 #include "Game.h"
 
-void Game::start() {
+void Game::startPVPMode() {
 	get_players_info();
 
 	playRound();
@@ -27,6 +27,21 @@ void Game::playRound() {
 		checkAnswers(score1, score2);
 		endRound();
 	}
+}
+
+void Game::playGoldenRound() {
+	std::cout << "\n\n\t\t*Golden Round!*" << std::endl;
+	std::cout << "\n\n\t** In the \"Golden Round\", the categories and the difficulty of the questions are randomly selected! **" << std::endl;
+	std::cout << "\n\n\tCurrent Turn: " << currentTurn << std::endl;
+	currentQuestions = api.get_questions(category, difficulty);
+	score1 = ask_questions(currentTurn);
+	currentRound++;
+	set_currentTurn();
+	score2 = ask_questions(currentTurn);
+	currentRound--;
+	set_currentTurn();
+	checkAnswers(score1, score2);
+	endRound();
 }
 
 void Game::nextRound() {
@@ -176,7 +191,12 @@ void Game::endRound() {
 
 bool Game::isGameEnd() {
 	if (currentRound >= 4) {
-		return true;
+		if (players[0].get_score() == players[1].get_score()) {
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 	else {
 		return false;

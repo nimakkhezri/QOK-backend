@@ -24,7 +24,7 @@ public:
 	}
 
 	void set_currentTurn();
-	void start();
+	void startPVPMode();
 	void get_players_info();
 	void set_players(const Player& player1, const Player& player2);
 	void playRound();
@@ -39,6 +39,7 @@ public:
 	void setRoundWinnerPlayer(const Player& player);
 	void endRound();
 	bool isGameEnd();
+	void playGoldenRound();
 	void endGame();
 };
 
