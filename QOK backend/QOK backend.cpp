@@ -19,7 +19,7 @@ int main() {
 		std::cin >> choice;
 		if (choice == 1) {
 			Game game;
-			game.start();
+			game.startPVPMode();
 		}
 	} while (choice != 0);
 }
