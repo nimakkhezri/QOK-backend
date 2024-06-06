@@ -23,6 +23,8 @@ public:
 	}
 
 	std::vector<Question> get_questions(const Category& category, const std::string& difficulty);
+	std::vector<Question> get_questions();
+	Category category_initializer(const std::string& category_name);
 	void show_categories();
 	std::vector<Category> get_categories() const;
 };
