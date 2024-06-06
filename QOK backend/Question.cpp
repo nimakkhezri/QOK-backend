@@ -36,15 +36,19 @@ void Question::set_type(const std::string& type) {
 void Question::set_category(const Category& category) {
 	this->category = category;
 }
+
 void Question::set_difficulty(const std::string& difficulty) {
 	this->difficulty = difficulty;
 }
+
 void Question::set_question(const std::string& question) {
 	this->question = question;
 }
+
 void Question::set_correct_answer(const std::string& correct_answer) {
 	this->correct_answer = correct_answer;
 }
+
 void Question::set_incorrect_answers(const std::vector<std::string>& incorrect_answers) {
 	this->incorrect_answers = incorrect_answers;
 }
