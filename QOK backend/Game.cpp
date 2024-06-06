@@ -27,13 +27,17 @@ void Game::playRound() {
 		checkAnswers(score1, score2);
 		endRound();
 	}
+	else {
+		playGoldenRound();
+	}
 }
 
 void Game::playGoldenRound() {
+	int score1, score2;
 	std::cout << "\n\n\t\t*Golden Round!*" << std::endl;
 	std::cout << "\n\n\t** In the \"Golden Round\", the categories and the difficulty of the questions are randomly selected! **" << std::endl;
 	std::cout << "\n\n\tCurrent Turn: " << currentTurn << std::endl;
-	currentQuestions = api.get_questions(category, difficulty);
+	currentQuestions = api.get_questions();
 	score1 = ask_questions(currentTurn);
 	currentRound++;
 	set_currentTurn();
@@ -139,6 +143,7 @@ int Game::ask_questions(const std::string& player_name) {
 		std::random_shuffle(answers.begin(), answers.end());
 
 		std::cout << "\n\n\tQuestion 1: " << question.get_question() << std::endl;
+		std::cout << "\n\tCategory: " << question.get_category().get_name() << "\t\t\tDifficulty: " << question.get_difficulty() << std::endl;
 		std::cout << "\n\n\tChoices: " << std::endl;
 		std::cout << "\n\n";
 		int j = 1;

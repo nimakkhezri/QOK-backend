@@ -44,31 +44,35 @@ std::vector<Question> TriviaAPI::get_questions() {
 	std::vector<Question> questions;
 
 	CURL* curl = curl_easy_init();
+	if (curl) {
+		std::string responce;
+		std::string url = "https://opentdb.com/api.php?amount=5&type=multiple";
 
-	std::string responce;
-	std::string url = "https://opentdb.com/api.php?amount=5&type=multiple";
+		curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responce);
 
-	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responce);
+		CURLcode res = curl_easy_perform(curl);
+		if (res == CURLE_OK) {
+			nlohmann::json data = nlohmann::json::parse(responce);
 
-	CURLcode res = curl_easy_perform(curl);
-	if (res == CURLE_OK) {
-		nlohmann::json data = nlohmann::json::parse(responce);
+			const auto& results = data["results"];
+			for (const auto& result : results) {
+				Question question;
+				question.set_type(result["type"]);
+				question.set_category(category_initializer(result["category"]));
+				question.set_difficulty(result["difficulty"]);
+				question.set_question(result["question"]);
+				question.set_correct_answer(result["correct_answer"]);
+				question.set_incorrect_answers(result["incorrect_answers"]);
 
-		const auto& results = data["results"];
-		for (const auto& result : results) {
-			Question question;
-			question.set_type(result["type"]);
-			question.set_category(category_initializer(result["category"]));
-			question.set_difficulty(result["difficulty"]);
-			question.set_question(result["question"]);
-			question.set_correct_answer(result["correct_answer"]);
-			question.set_incorrect_answers(result["incorrect_answers"]);
-
-			questions.push_back(question);
+				questions.push_back(question);
+			}
 		}
+
+		curl_easy_cleanup(curl);
 	}
+	return questions;
 }
 
 void TriviaAPI::download_categories() {
